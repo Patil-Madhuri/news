@@ -1,0 +1,29 @@
+<ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="line-spin-clockwise-fade-rotating"
+  [fullScreen]="true">
+  <p style="color: white"> Loading... </p>
+</ngx-spinner>
+<div>
+  <div fxFlex=100 fxLayout="row" fxLayoutAlign="center center">
+    <mat-card fxFlex="center space-around" class="details-card" fxFlex=80>
+      <div>
+        <div infiniteScroll [infiniteScrollDistance]="scrollDistance"
+          [infiniteScrollThrottle]="scrollThrottle" [scrollWindow]="false" (scrolled)="onScrollDown()"
+          style="max-height: 450px; overflow-y: scroll;">
+          <div *ngFor="let item of contactsList; let i = index">
+            <div fxLayout="row" style="padding: 10px;">
+              <div>{{i+1}}.&nbsp;&nbsp;</div>
+              <a class="title" href="{{item.url}}" target="_blank">
+                <i class="fa fa-newspaper-o" aria-hidden="true"></i>
+                &nbsp;{{item.title }}</a>
+            </div>
+            <div class="ml-2">Posted By:&nbsp; {{item.by}}</div>
+            <div class="ml-2">Points:&nbsp; {{item.score}}</div>
+            <div class="border"></div>
+          </div>
+        </div>
+      </div>
+
+    </mat-card>
+  </div>
+</div>
+
